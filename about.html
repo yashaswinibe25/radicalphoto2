@@ -45,6 +45,22 @@
 	</div>
 
 </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+		
 
+	$("#bios a").click(function(ev){
+	ev.preventDefault();
+	var target = $(this).attr("href");
+	$("#bio").load(target + " #content", function() {
+		$("#bio").hide().slideDown(3000);
+	});
+});
+	
+	
+	
+	
+	</script>
+	
 </body>
 </html>

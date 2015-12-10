@@ -3,6 +3,7 @@
 <head>
 	<title>RadicalPhoto Gallery</title>
 	<link href='http://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet'>
+	<link rel="stylesheet" href="css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
 	<link type="text/css" rel="stylesheet" href="css/radicalphoto.css">
 </head>
 <body>
@@ -28,16 +29,16 @@
 
 	<div id="gallery">
 		<ul>
-			<li><a href="images/blue_dress.jpg"><img src="images/blue_dress_thumb.jpg"></a></li>
-			<li><a href="images/boxer.jpg"><img src="images/boxer_thumb.jpg"></a></li>
-			<li><a href="images/cow.jpg"><img src="images/cow_thumb.jpg"></a></li>
-			<li><a href="images/country_boy_relaxing.jpg"><img src="images/country_boy_relaxing_thumb.jpg"></a></li>
-			<li><a href="images/eye.jpg"><img src="images/eye_thumb.jpg"></a></li>
-			<li><a href="images/ice_swim.jpg"><img src="images/ice_swim_thumb.jpg"></a></li>
-			<li><a href="images/sitting.jpg"><img src="images/sitting_thumb.jpg"></a></li>
+			<li><a class="fancybox" rel="group" href="images/blue_dress.jpg"><img src="images/blue_dress_thumb.jpg"></a></li>
+			<li><a class="fancybox" rel="group" href="images/boxer.jpg"><img src="images/boxer_thumb.jpg"></a></li>
+<!--			<li><a href="images/cow.jpg"><img src="images/cow_thumb.jpg"></a></li>-->
+			<li><a class="fancybox" rel="group" href="images/country_boy_relaxing.jpg"><img src="images/country_boy_relaxing_thumb.jpg"></a></li>
+			<li><a class="fancybox" rel="group" href="images/eye.jpg"><img src="images/eye_thumb.jpg"></a></li>
+			<li><a class="fancybox" rel="group" href="images/ice_swim.jpg"><img src="images/ice_swim_thumb.jpg"></a></li>
+			<li><a class="fancybox" rel="group" href="images/sitting.jpg"><img src="images/sitting_thumb.jpg"></a></li>
 		</ul>
 
-		<p><img src="images/blue_dress.jpg" alt=""></p>
+		<p><img id="big_image" src="images/blue_dress.jpg" alt=""></p>
 
 	</div>
 
@@ -48,6 +49,28 @@
 	</div>
 
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.fancybox.pack.js?v=2.1.5"></script>
 
+
+	<script>
+	$('#gallery li a').mouseover(function () {
+        var img_src = $(this).attr('href');
+        var img_alt = $(this).children('img').attr('alt');
+        $('#big_image').attr('src', img_src);
+        $('#big_image').attr('alt', img_alt);
+    });
+
+</script>
+	<script>
+	$("img").click(function() {
+		$(".fancybox").fancybox(
+		{
+			autoCenter:"true"
+		});
+		
+		
+	});
+</script>
 </body>
 </html>

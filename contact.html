@@ -30,9 +30,9 @@
 
 		<p class="errors">All fields are required.</p>
 
-		<p><label>Name: <input type="text" size="25" name="name" id="username"></label></p>
-		<p><label>Email: <input type="text" size="25" name="email" id="email"></label></p>
-		<p><label>Message:<br> <textarea cols="50" rows="5" name="message" id="my_message"></textarea></label></p>
+		<p><label>Name: <input type="text" size="25" name="name" id="username"></label><span id="name"></span></p>
+		<p><label>Email: <input type="text" size="25" name="email" id="useremail"></label><span id="email"></span></p>
+		<p><label>Message:<br> <textarea cols="50" rows="5" name="usermessage" id="my_message"></textarea></label><span id="message"></span></p>
 		<p><input type="submit" value="Contact Us"></p>
 	</form>
 
@@ -43,6 +43,37 @@
 	</div>
 
 </div>
-
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+	$("#myform").submit(function(ev){
+	var errors =0;
+	if ($("#username").val() == ""){
+		$("#name").text(" This field is required");
+		errors++; 	
+	} else {
+		$("#name").text("");
+	}
+	
+	if ($("#useremail").val() == ""){
+		$("#email").text(" This field is required");
+		errors++;  
+	} else {
+		$("#email").text("");
+	}
+	
+	if ($("#my_message").val() == ""){
+		$("#message").text(" This field is required");
+		errors++;  	
+	} else {
+		$("#message").text("");
+	}
+	
+	if (errors > 0){
+		ev.preventDefault();  
+	}
+});
+	
+	
+	</script>
 </body>
 </html>

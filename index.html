@@ -25,8 +25,11 @@
 	<h2>Page heading</h2>
 
 	<div id="slider">
-	    <img src="images/slider_alligator.jpg" title="Chomp">
-		<p>Award Winning Photography</p>
+	    <div><img src="images/slider_alligator.jpg" title="Chomp"><p>Award Winning Photography</p></div>
+	    <img src="images/slider_cow.jpg" title="Cow">
+	    <img src="images/slider_ladybug.jpg" title="ladybug">
+	    <img src="images/slider_turtle.jpg" title="turtle">
+		
 	</div>
 
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
@@ -53,8 +56,51 @@
 	<div id="footer">
 	<p>All content &copy; Copyright</p>
 	</div>
-
+		
 </div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="js/jquery.slides.min.js"></script>
+ <script>
+
+	 $(function(){
+      $("#slider").slidesjs({
+        width: 600,
+        height:300,
+		   play: {
+      active: false,
+        // [boolean] Generate the play and stop buttons.
+        // You cannot use your own buttons. Sorry.
+      effect: "slide",
+        // [string] Can be either "slide" or "fade".
+      interval: 4000,
+        // [number] Time spent on each slide in milliseconds.
+      auto: true,
+        // [boolean] Start playing the slideshow on load.
+      pauseOnHover: false,
+        // [boolean] pause a playing slideshow on hover
+      restartDelay: 2500
+        // [number] restart delay on inactive slideshow
+    },
+		  pagination: {
+      active:false,
+        // [boolean] Create pagination items.
+        // You cannot use your own pagination. Sorry.
+      effect: "silde"
+        // [string] Can be either "slide" or "fade".
+    },
+		  navigation: {
+      active: false,
+        // [boolean] Generates next and previous buttons.
+        // You can set to false and use your own buttons.
+        // User defined buttons must have the following:
+        // previous button: class="slidesjs-previous slidesjs-navigation"
+        // next button: class="slidesjs-next slidesjs-navigation"
+      effect: "slide"
+        // [string] Can be either "slide" or "fade".
+    }
+      });
+    });
+	</script>
 
 </body>
 </html>
